@@ -1,24 +1,11 @@
-//React Elements
 import React, { Component } from 'react';
 import { Button, View, Text,ImageBackground,SafeAreaView,StyleSheet } from 'react-native';
-import firebase from 'firebase';
 
-//Separator
 function Separator() {
     return <View style={styles.separator} />;
   }
-
-//Class Component
+  
 export default class Home extends Component {
-
-
-  signOut = () => {
-    firebase.auth().signOut().then(() => {
-      this.props.navigation.navigate('Login')
-    })
-    .catch(error => this.setState({ errorMessage: error.message }))
-  } 
-
   render() {
     return (
         <ImageBackground source={require('../../assets/images/bg.jpg')} style={styles.image}>
@@ -27,22 +14,15 @@ export default class Home extends Component {
                 <View style={styles.container}>
                     <View>
                     <Button
-                        color="#3740FE" 
-                        title="Add Details"
-                        onPress={() => this.props.navigation.navigate('Blog')}
+                        title="Add"
+                        onPress={() => this.props.navigation.navigate('AddItem')}
                     />
                     <Separator />
                     <Button
-                        color="#3740FE"
+                        color="#841584"
                         title="Show Details"
-                        onPress={() => this.props.navigation.navigate('BlogDetails')}
+                        onPress={() => this.props.navigation.navigate('List')}
                     />
-                    <Separator />
-                     <Button
-                        color="#3740FE"
-                        title="Logout"
-                        onPress={() => this.signOut()}
-                      />
                     </View>
                 </View>
         </ImageBackground>

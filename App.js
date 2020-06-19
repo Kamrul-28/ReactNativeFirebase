@@ -1,23 +1,27 @@
-// App.js
-
+//React Elements
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+//Components
 import Login from './src/components/login';
 import Signup from './src/components/signup';
 import Dashboard from './src/components/dashboard';
-import Home from './src/screens/Home';
+
+//Screens
 import AddItem from './src/screens/AddItem';
 import List from './src/screens/List'
+import Home from './src/screens/Home';
+import Blog from './src/screens/Blog';
+import BlogDetails from './src/screens/BlogDetails';
 
-
+//Stack Navigator
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Signup"
+      initialRouteName="Login"
       screenOptions={{
         headerTitleAlign: 'center',
         headerStyle: {
@@ -28,11 +32,7 @@ function MyStack() {
           fontWeight: 'bold',
         },
       }}>
-      <Stack.Screen 
-          name="Signup" 
-          component={Signup} 
-          options={{ title: 'Signup' }}
-      />       
+
       <Stack.Screen 
           name="Login" 
           component={Login} 
@@ -42,6 +42,16 @@ function MyStack() {
           }
       />
       <Stack.Screen 
+          name="Signup" 
+          component={Signup} 
+          options={{ title: 'Signup' }}
+      />    
+      <Stack.Screen 
+        name="Home" 
+        component={Home} 
+        options={{ title: 'Home' }}
+      />   
+      <Stack.Screen 
           name="Dashboard" 
           component={Dashboard} 
           options={
@@ -49,14 +59,14 @@ function MyStack() {
             {headerLeft: null} 
           }
       />
-      <Stack.Screen 
+      {/* <Stack.Screen 
           name="Home" 
           component={Home} 
           options={
             { title: 'Home' },
             {headerLeft: null} 
           }
-      />
+      /> */}
       <Stack.Screen 
           name="AddItem" 
           component={AddItem} 
@@ -74,10 +84,21 @@ function MyStack() {
             {headerLeft: null} 
           }
       />
+      <Stack.Screen 
+        name="Blog" 
+        component={Blog} 
+        options={{ title: 'Add Details' }}
+      />
+      <Stack.Screen 
+       name="BlogDetails" 
+       component={BlogDetails} 
+       options={{ title: 'Blog Detail' }}
+      />
     </Stack.Navigator>
   );
 }
 
+//Functional Component
 export default function App() {
   return (
     <NavigationContainer>
@@ -85,3 +106,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+console.disableYellowBox = true;
