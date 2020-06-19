@@ -6,7 +6,8 @@ import {
   StyleSheet,
   TextInput,
   AlertIOS,
-  Alert
+  Alert,
+  ImageBackground
 } from 'react-native';
 
 import { db } from '../config';
@@ -35,15 +36,15 @@ export default class AddItem extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <Text style={styles.title}>Add Item</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChange} />
-        <TouchableHighlight
-          style={styles.button}
-          underlayColor="white"
-          onPress={this.handleSubmit}
-        >
-          <Text style={styles.buttonText}>Add</Text>
-        </TouchableHighlight>
+            <Text style={styles.title}>Add Item</Text>
+            <TextInput style={styles.itemInput} onChange={this.handleChange}/>
+            <TouchableHighlight
+            style={styles.button}
+            underlayColor="white"
+            onPress={this.handleSubmit}
+            >
+            <Text style={styles.buttonText}>Add</Text>
+            </TouchableHighlight>
       </View>
     );
   }
@@ -55,7 +56,8 @@ const styles = StyleSheet.create({
       padding: 30,
       flexDirection: 'column',
       justifyContent: 'center',
-      backgroundColor: '#6565fc'
+      backgroundColor: 'lightblue'
+      
     },
     title: {
       marginBottom: 20,
