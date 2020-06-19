@@ -1,29 +1,58 @@
-import 'react-native-gesture-handler';
-import React, { Component } from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack'
+// App.js
 
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-//Screens
-import Home from './src/screens/Home';
-import AddItem from './src/screens/AddItem';
-import List from './src/screens/List';
+import Login from './src/components/login';
+import Signup from './src/components/signup';
+import Dashboard from './src/components/dashboard';
 
+const Stack = createStackNavigator();
 
-const AppNavigator = createStackNavigator({
-  Home,
-  AddItem,
-  List
-},
-{
-  initialRouteName: 'Home'
+function MyStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Signup"
+      screenOptions={{
+        headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: '#3740FE',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+      <Stack.Screen 
+        name="Signup" 
+        component={Signup} 
+        options={{ title: 'Signup' }}
+      />       
+      <Stack.Screen 
+        name="Login" 
+        component={Login} 
+        options={
+          {title: 'Login'},
+          {headerLeft: null} 
+        }
+      />
+      <Stack.Screen 
+       name="Dashboard" 
+       component={Dashboard} 
+       options={
+         { title: 'Dashboard' },
+         {headerLeft: null} 
+       }
+      />
+    </Stack.Navigator>
+  );
 }
-);
 
-const AppContainer = createAppContainer(AppNavigator);
-
-export default class App extends Component {
-  render() {
-    return <AppContainer />;
-  }
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
 }
