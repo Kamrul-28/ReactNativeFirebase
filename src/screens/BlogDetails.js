@@ -1,10 +1,13 @@
+//React Elements
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import ItemComponent from '../components/ItemComponent';
 import { db } from '../config';
 
+//Connection with firebase
 let detailsRef = db.ref('/details');
 
+//Class Component
 export default class List extends Component {
   state = {
     details: []
@@ -31,6 +34,7 @@ export default class List extends Component {
   }
 }
 
+//Css Part
 const styles = StyleSheet.create({
   container: {
     flex: 1,

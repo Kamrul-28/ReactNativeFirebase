@@ -1,14 +1,15 @@
-// components/Blog.js
-
+//React Elements
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
 import { db } from '../config';
 
+//Pushing data to database here
 let addItem = (item) => {
   db.ref('/details').push(item);
   console.log("Data Added");
 };
 
+//Class Component
 export default class Blog extends Component {
   
   constructor() {
@@ -23,12 +24,14 @@ export default class Blog extends Component {
     }
   }
 
+  //Updateing Input Values
   updateInputVal = (val, prop) => {
     const state = this.state;
     state[prop] = val;
     this.setState(state);
   }
 
+  //Handleing Submit
   handleSubmit = () => {
     addItem(this.state);
   };
@@ -44,53 +47,54 @@ export default class Blog extends Component {
     }    
     return (
       <View style={styles.container}>  
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Name"
-          value={this.state.displayName}
-          onChangeText={(val) => this.updateInputVal(val, 'displayName')}
-        />      
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Email"
-          value={this.state.email}
-          onChangeText={(val) => this.updateInputVal(val, 'email')}
-        />
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Blood Group"
-          value={this.state.blood_group}
-          onChangeText={(val) => this.updateInputVal(val, 'blood_group')}
-        />   
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Address"
-          value={this.state.address}
-          onChangeText={(val) => this.updateInputVal(val, 'address')}
-        /> 
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Name"
+            value={this.state.displayName}
+            onChangeText={(val) => this.updateInputVal(val, 'displayName')}
+          />      
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Email"
+            value={this.state.email}
+            onChangeText={(val) => this.updateInputVal(val, 'email')}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Blood Group"
+            value={this.state.blood_group}
+            onChangeText={(val) => this.updateInputVal(val, 'blood_group')}
+          />   
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Address"
+            value={this.state.address}
+            onChangeText={(val) => this.updateInputVal(val, 'address')}
+          /> 
 
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Contact"
-          value={this.state.contact}
-          onChangeText={(val) => this.updateInputVal(val, 'contact')}
-        /> 
-        <Button
-          color="#3740FE"
-          title="Add Details"
-          onPress={() => this.handleSubmit()}
-        />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder="Contact"
+            value={this.state.contact}
+            onChangeText={(val) => this.updateInputVal(val, 'contact')}
+          /> 
+          <Button
+            color="#3740FE"
+            title="Add Details"
+            onPress={() => this.handleSubmit()}
+          />
 
-        <Text 
-          style={styles.loginText}
-          onPress={() => this.props.navigation.navigate('BlogDetails')}>
-          Click Here to see Details of others
-        </Text>                          
+          <Text 
+            style={styles.loginText}
+            onPress={() => this.props.navigation.navigate('BlogDetails')}>
+            Click Here to see Details of others
+          </Text>                          
       </View>
     );
   }
 }
 
+//Css Part
 const styles = StyleSheet.create({
   container: {
     flex: 1,

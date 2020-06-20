@@ -20,81 +20,84 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator
-      initialRouteName="Login"
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerStyle: {
-          backgroundColor: '#3740FE',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      }}>
+        <Stack.Navigator
+          initialRouteName="Login"
+          screenOptions={{
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#3740FE',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}>
+                {/* Screens Starts Here */}
+               
+                <Stack.Screen 
+                    name="Login" 
+                    component={Login} 
+                    options={
+                      {title: 'Login'},
+                      {headerLeft: null} 
+                    }
+                />
+                <Stack.Screen 
+                    name="Signup" 
+                    component={Signup} 
+                    options={{ title: 'Signup' }}
+                />    
+                <Stack.Screen 
+                  name="Home" 
+                  component={Home} 
+                  options={{ title: 'Home' }}
+                />   
+                <Stack.Screen 
+                    name="Dashboard" 
+                    component={Dashboard} 
+                    options={
+                      { title: 'Dashboard' },
+                      {headerLeft: null} 
+                    }
+                />
+                {/* <Stack.Screen 
+                    name="Home" 
+                    component={Home} 
+                    options={
+                      { title: 'Home' },
+                      {headerLeft: null} 
+                    }
+                /> */}
+                <Stack.Screen 
+                    name="AddItem" 
+                    component={AddItem} 
+                    options={
+                      { title: 'Add Details' },
+                      {headerLeft: null} 
+                    }
+                />
 
-      <Stack.Screen 
-          name="Login" 
-          component={Login} 
-          options={
-            {title: 'Login'},
-            {headerLeft: null} 
-          }
-      />
-      <Stack.Screen 
-          name="Signup" 
-          component={Signup} 
-          options={{ title: 'Signup' }}
-      />    
-      <Stack.Screen 
-        name="Home" 
-        component={Home} 
-        options={{ title: 'Home' }}
-      />   
-      <Stack.Screen 
-          name="Dashboard" 
-          component={Dashboard} 
-          options={
-            { title: 'Dashboard' },
-            {headerLeft: null} 
-          }
-      />
-      {/* <Stack.Screen 
-          name="Home" 
-          component={Home} 
-          options={
-            { title: 'Home' },
-            {headerLeft: null} 
-          }
-      /> */}
-      <Stack.Screen 
-          name="AddItem" 
-          component={AddItem} 
-          options={
-            { title: 'Add Details' },
-            {headerLeft: null} 
-          }
-      />
+                <Stack.Screen 
+                    name="List" 
+                    component={List} 
+                    options={
+                      { title: 'List' },
+                      {headerLeft: null} 
+                    }
+                />
+                <Stack.Screen 
+                  name="Blog" 
+                  component={Blog} 
+                  options={{ title: 'Add Details' }}
+                />
+                <Stack.Screen 
+                name="BlogDetails" 
+                component={BlogDetails} 
+                options={{ title: 'Blog Detail' }}
+                />
 
-      <Stack.Screen 
-          name="List" 
-          component={List} 
-          options={
-            { title: 'List' },
-            {headerLeft: null} 
-          }
-      />
-      <Stack.Screen 
-        name="Blog" 
-        component={Blog} 
-        options={{ title: 'Add Details' }}
-      />
-      <Stack.Screen 
-       name="BlogDetails" 
-       component={BlogDetails} 
-       options={{ title: 'Blog Detail' }}
-      />
-    </Stack.Navigator>
+               {/* Screens Ends Here */} 
+        </Stack.Navigator>
   );
 }
 
