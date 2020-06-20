@@ -33,7 +33,7 @@ function MyStack() {
         },
       }}>
 
-      <Stack.Screen 
+      {/* <Stack.Screen 
           name="Login" 
           component={Login} 
           options={
@@ -45,7 +45,7 @@ function MyStack() {
           name="Signup" 
           component={Signup} 
           options={{ title: 'Signup' }}
-      />    
+      />     */}
       <Stack.Screen 
         name="Home" 
         component={Home} 

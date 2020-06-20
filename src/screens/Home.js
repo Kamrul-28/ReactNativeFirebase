@@ -58,17 +58,18 @@ const styles = StyleSheet.create({
     },
     text:{
         color:'#fff',
-        fontSize:'20px',
         textAlign:'center',
         padding:'20px'
     },
     container:{
         justifyContent:'center',
-        flex:1
+        flex:1,
+        padding:"25px"      
     },
     separator: {
         marginVertical: 8,
         borderBottomColor: '#737373',
         borderBottomWidth: StyleSheet.hairlineWidth,
-      }
+      },
+
 });

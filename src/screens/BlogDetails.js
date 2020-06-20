@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import ItemComponent from '../components/ItemComponent';
-
 import { db } from '../config';
 
-let itemsRef = db.ref('/items');
+let detailsRef = db.ref('/details');
 
 export default class List extends Component {
   state = {
-    items: []
+    details: []
   };
 
   componentDidMount() {
-    itemsRef.on('value', snapshot => {
+    detailsRef.on('value', snapshot => {
       let data = snapshot.val();
-      let items = Object.values(data);
-      this.setState({ items });
+      let details = Object.values(data);
+      this.setState({ details });
     });
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.items.length > 0 ? (
-          <ItemComponent items={this.state.items} />
+      <View>
+        {this.state.details.length > 0 ? (
+          <ItemComponent details={this.state.details} />
         ) : (
-          <Text>No items</Text>
+          <Text>No details</Text>
         )}
       </View>
     );

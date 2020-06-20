@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This is a Demo App",
+    "githubUrl": "https://github.com/Kamrul-28/ReactNativeFirebase.git"
   }
 }
