@@ -27,7 +27,7 @@ export default class ItemComponent extends Component {
                                <Text>Address : {detail.email}</Text>
                                <Text>Address : {detail.address}</Text>
                                <Text>contact No : {detail.contact}</Text>
-                               <Text>Blood Group : {detail.contact}</Text>
+                               <Text>Blood Group : {detail.blood_group}</Text>
                           </Body>
                         </CardItem>
                       </Card>
